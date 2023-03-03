@@ -6,9 +6,11 @@ import { Toast } from 'react-hot-toast'
 import { useStateContext } from '@/context/StateContext'
 import { urlFor } from '@/lib/client'
 
+
 const Cart = () => {
   const cartRef = useRef();
-  const { totalPrice, totalQuantities, cartItems, setShowCart, toggleCartItemQuantity, OnRemove } = useStateContext();
+  const { totalPrice, totalQuantities, cartItems, setShowCart, toggleCartItemQuantity, onRemove } = useStateContext();
+ 
   return (
     <div className="cart-wrapper" ref={cartRef}>
       <div className="cart-container">
@@ -72,7 +74,7 @@ const Cart = () => {
                         </span>
                       </p>
                     </div>
-                    <button type="button" className="remove-item" onClick={()=>OnRemove(item)}>
+                    <button type="button" className="remove-item" onClick={()=>onRemove(item)}>
                       <TiDeleteOutline />
                     </button>
                   </div>
@@ -87,7 +89,7 @@ const Cart = () => {
               <h3>${totalPrice}</h3>
             </div>
             <div className="btn-container">
-              <button className="btn">Pay with Stripe</button>
+              <button className="btn">Checkout</button>
             </div>
           </div>
         )}
